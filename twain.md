@@ -1,3 +1,4 @@
+## twain
 
 I've long been dissatisfied with the limitations of basic authentication and reverse proxies in general, but whenever I tried to figure out a better way, the information I found was somewhat scattered and incomplete.
 
@@ -98,10 +99,9 @@ I use a password manager, with complex passwords. They’re nigh-impossible to r
 1. The reverse proxy delivers the 4xx page to the client
 1. User types their username **(but not their password)** and clicks Submit
 1. **The username and originally requested page get posted to https://twain.example.com/login.php**
-1. **The authentication page sends the user an email and displays a message informing them of that fact, and a link to click AFTER they’ve clicked the link in the email**
+1. **The authentication page sends the user an email and displays a message informing them of that fact, and keeps checking in the background if the link has been clicked
 1. **The user clicks the link in their email**
-1. **The user clicks on the link on the page**
-1. **The authentication page verifies that the link in the email has been clicked**
+1. **The authentication page redirects them to the originally requested resource**
 1. The authentication page sets a **session** cookie
 1. The authentication page stores a **very-short lived** token on the server to indicate that said cookie is linked to an authorised user
 1. The authentication page redirects the user to the originally requested resource
